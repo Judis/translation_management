@@ -6,7 +6,7 @@ defmodule Tr.Models.OrganizationMembership do
   alias Tr.Models.Role
   alias Tr.Models.User
 
-  schema "organization_membership" do
+  schema "organization_memberships" do
     belongs_to(:organization, Organization)
     belongs_to(:role, Role)
     belongs_to(:user, User)
@@ -27,5 +27,6 @@ defmodule Tr.Models.OrganizationMembership do
       :role_id,
       :user_id
     ])
+    |> foreign_key_constraint(:role_id)
   end
 end
